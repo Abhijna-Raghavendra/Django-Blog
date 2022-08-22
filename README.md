@@ -17,15 +17,15 @@ $ source virtenv/Scripts/activate
 ```
 > If you do not have python already installed on your system, follow any [tutorial](https://www.digitalocean.com/community/tutorials/install-python-windows-10)
 
-#### 3. Generating and adding the secret key to your .env file
+#### 3. Install the required dependencies
+```sh
+(virtenv)$ pip install -r requirements.txt
+```
+
+#### 4. Generating and adding the secret key to your .env file
 ```sh
 $ python -c 'from django.core.management.utils import get_random_secret_key; \
       print("SECRET_KEY="+get_random_secret_key())' > .env
-```
-
-#### 4. Install the required dependencies
-```sh
-(virtenv)$ pip install -r requirements.txt
 ```
 
 #### 5. Run the server on your local computer
