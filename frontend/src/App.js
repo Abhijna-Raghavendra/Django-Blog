@@ -39,18 +39,17 @@ class App extends Component {
   render() {
     return (
       <main className="content">
-      <div class="navbar">
-        <h1>Django-Blog</h1>
-    </div>
-    <div class="blog">
-        
-    </div>
-    <div class="blog_list">
-        <table>
-                {this.renderPosts()}
-        </table>
-    </div>
-    </main>
+        <div class="navbar">
+          <h1>Django-Blog</h1>
+        </div>
+        <div class="blog">
+          <div class="blog_list">
+            <table>
+              {this.renderPosts()}
+            </table>
+          </div>    
+        </div>
+      </main>
     )
   }
 }
