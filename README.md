@@ -41,7 +41,7 @@ $ source virtenv/Scripts/activate
 ##### 1. Run the npm server
 ```sh
 $ cd ../../frontend
-$ npm run start
+$ npm start
 ```
 > If you do not have npm already installed, then follow any [tutorial](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
 
