@@ -1,5 +1,7 @@
 import './App.css';
-import React, { Component } from "react"
+import React, { Component } from "react";
+import { Container } from "react";
+import Navbar from 'react-bootstrap/Navbar';
 
 class App extends Component {
   constructor(props) {
@@ -11,14 +13,12 @@ class App extends Component {
 
   async getData() {
     try {
-      console.log("Hello");
       const data = await fetch('http://127.0.0.1:8000/api/blog_list/');
       const blogPostItems = await data.json();
       console.log(blogPostItems);
       this.setState({
         blogPostItems
       });
-      console.log(this.state.blogPostItems);
     } catch (e) {
       console.log(e);
   }
@@ -26,13 +26,12 @@ class App extends Component {
 
   renderPosts(){
     this.getData();
-    return this.state.blogPostItems.map(post => (
-      
-      <tr>
-        <time>{post.created_date}</time>
+    return this.state.blogPostItems.map(post => ( 
+      <li>
           <h2>{post.title}</h2>
-          <h4>{post.content}</h4>
-      </tr>
+          <time> Published at: {post.created_date}</time>
+          <p>{post.content}</p>
+      </li>
     ));
   }
 
@@ -41,17 +40,17 @@ class App extends Component {
       <main className="content">
         <div class="navbar">
           <h1>Django-Blog</h1>
+          <table><tr><td><a href="http://127.0.0.1:8000/admin/" title="sign in to add blog posts">Sign In</a></td></tr></table>
         </div>
-        <div class="blog">
+        <div class="content">
           <div class="blog_list">
-            <table>
+            <ul>
               {this.renderPosts()}
-            </table>
+            </ul>
           </div>    
         </div>
       </main>
     )
   }
 }
-
 export default App;
